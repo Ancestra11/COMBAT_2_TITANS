@@ -3,3 +3,6 @@
 .git/
 __pycache__/
 *.pyc
+
+src/.idea
+src/__pycache__/
