@@ -18,6 +18,7 @@ class Pepe(animation.AnimateSprite) :
         self.rect.y = 300
         self.size = (60, 175)
         self.velocity = random.randint(1, 2)
+        self.animationSpeed = 0.10
 
     def damage(self, amount):
         self.health -= amount
@@ -29,7 +30,7 @@ class Pepe(animation.AnimateSprite) :
             self.velocity = random.randint(1, 2)
 
     def update_animation(self):
-        self.animate(self.size)
+        self.animate(self.size, self.animationSpeed)
 
     def update_health_bar(self, surface):
         # Code RGB vert de la barre de vie

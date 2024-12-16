@@ -27,8 +27,8 @@ class Game :
 
     def start(self):
         self.is_playing = True
-        self.spawn_pepe()
-        self.spawn_pepe()
+        #self.spawn_pepe()
+        #self.spawn_pepe()
 
     def update(self, screen):
         # Appliquer l'image du joueur
@@ -36,6 +36,9 @@ class Game :
 
         # Actualiser la barre de vie du joueur
         self.player.update_health_bar(screen)
+
+        # Actualiser l'animation du joueur
+        self.player.update_animation()
 
         # Récupérer les projectiles du joueur
         for projectile in self.player.all_projectiles:

@@ -23,7 +23,6 @@ class Projectile(pygame.sprite.Sprite) :
             pepe.damage(self.player.attack)
 
         # Vérifier si notre projectile n'est plus présent sur l'écran
-        # TODO : Faire revenir doucement le poing sur Rayman (x et y) et le supprimer ensuite
         if self.rect.x > 1280 :
             self.remove()
 

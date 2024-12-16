@@ -11,6 +11,8 @@ class Spiritomb(animation.AnimateSprite) :
         self.rect.x = 1035
         self.rect.y = 315
         self.size = (60, 60)
+        self.animationSpeed = 0.06
+        self.start_animation()
 
     def update_animation(self):
-        self.animate(self.size)
+        self.animate(self.size, self.animationSpeed, True)
