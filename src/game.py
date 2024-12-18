@@ -2,6 +2,8 @@ import pygame
 from player import Player
 from pepe import Pepe
 from spiritomb import Spiritomb
+from sounds import SoundManager
+
 
 class Game :
     
@@ -23,11 +25,15 @@ class Game :
         # Groupe de pépé
         self.all_pepes = pygame.sprite.Group()
 
+        # Gérer le son
+        self.sound_manager = SoundManager()
+
+        # Gérer les contrôles du jeu
         self.pressed = {}
 
     def start(self):
         self.is_playing = True
-        #self.spawn_pepe()
+        self.spawn_pepe()
         #self.spawn_pepe()
 
     def update(self, screen):
@@ -78,3 +84,4 @@ class Game :
         self.all_pepes = pygame.sprite.Group()
         self.player.health = self.player.max_health
         self.is_playing = False
+        self.sound_manager.play('game_over_music')

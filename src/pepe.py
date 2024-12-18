@@ -11,8 +11,8 @@ class Pepe(animation.AnimateSprite) :
         self.max_health = 100
         self.attack = 0.3
         # TODO : Si la cible va vers la droite, tourner le sprite à droite avec uniquement du code
-        #self.image = pygame.image.load('../assets/images/sprites/pepe/pepe_idle_gauche.png')
-        #self.image = pygame.transform.scale(self.image, (60, 175))
+        self.image = pygame.image.load('../assets/images/sprites/pepe/pepe_idle_gauche.png')
+        self.image = pygame.transform.scale(self.image, (60, 175))
         self.rect = self.image.get_rect()
         self.rect.x = 1000 + random.randint(0, 300)
         self.rect.y = 300
@@ -22,6 +22,8 @@ class Pepe(animation.AnimateSprite) :
 
     def damage(self, amount):
         self.health -= amount
+        # TODO : Mettre un autre son, plus agréable à écouter. Ou ne pas en mettre
+        #self.game.sound_manager.play('damage_taken_sfx', False)
 
         # Fait respawn pépé ailleurs si ses PV sont <= à 0 (évite le surchargement de la mémoire)
         if self.health <= 0 :

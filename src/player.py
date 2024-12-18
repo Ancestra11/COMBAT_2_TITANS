@@ -37,12 +37,11 @@ class Player(animation.AnimateSprite) :
 
         # Démarrer l'animation du lancer
         self.start_animation()
+        self.game.sound_manager.play('rayman_punch_sfx', False)
 
     def update_health_bar(self, surface):
 
         # Dessiner la barre de vie
-        #pygame.draw.rect(surface, (60, 63, 60), [self.rect.x + 9, self.rect.y - 10, self.max_health, 5])
-        #pygame.draw.rect(surface, (111, 210, 46), [self.rect.x + 9, self.rect.y - 10, self.health, 5])
         pygame.draw.rect(surface, (60, 63, 60), [self.rect.x - 5, self.rect.y - 10, self.max_health, 5])
         pygame.draw.rect(surface, (111, 210, 46), [self.rect.x - 5, self.rect.y - 10, self.health, 5])
 

@@ -4,9 +4,6 @@ from game import Game
 
 pygame.init()
 
-pygame.mixer.music.load('../assets/sounds/Peacefulness.mp3')
-pygame.mixer.music.play(-1)
-
 pygame.display.set_caption("GUERRE DE TERRITOIRE AU SOMMET DU TRÔNE")
 screen = pygame.display.set_mode((1280, 520))
 
@@ -24,11 +21,12 @@ play_button_rect.x = math.ceil(screen.get_width() / 2.35)
 play_button_rect.y = math.ceil(screen.get_height() / 2.2)
 
 game = Game()
+game.sound_manager.play('beginning_music')
 
 running = True
 while running :
 
-    # Appliquer la fenêtre du jeu
+    # Appliquer la fenêtre et la musique du jeu
     screen.blit(background, (0, 0))
 
     # Déclencher les instructions de la partie si notre jeu a commencé
@@ -55,7 +53,8 @@ while running :
         elif event.type == pygame.KEYUP :
             game.pressed[event.key] = False
 
-        # Lance le jeu si la souris est en collision avec le bouton start
+        # Lance le jeu si on clique sur le bouton start
         elif event.type == pygame.MOUSEBUTTONDOWN :
             if play_button_rect.collidepoint(event.pos) :
                 game.start()
+                game.sound_manager.play('damage_taken_sfx', False)
